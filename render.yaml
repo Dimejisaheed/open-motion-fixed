@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: openmotion
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LLM_PROVIDER
+        value: auto
