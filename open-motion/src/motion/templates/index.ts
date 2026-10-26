@@ -1,0 +1,339 @@
+import type { MotionComponent } from "@openmotion/shared";
+import { createId, now } from "../../utils/id.js";
+import { fadeTemplate } from "./fade.js";
+import { slideTemplate } from "./slide.js";
+import { bounceTemplate } from "./bounce.js";
+import { spinTemplate } from "./spin.js";
+import { pulseTemplate } from "./pulse.js";
+import { scaleTemplate } from "./scale.js";
+import { rotateTemplate } from "./rotate.js";
+import { squashStretchTemplate } from "./squashStretch.js";
+import { logoRevealTemplate } from "./logoReveal.js";
+import { resizeTemplate } from "./resize.js";
+import { springTemplate } from "./spring.js";
+import { flipCardTemplate } from "./flipCard.js";
+import { typewriterTemplate } from "./typewriter.js";
+import { shimmerTemplate } from "./shimmer.js";
+import { morphTemplate } from "./morph.js";
+import { notificationTemplate } from "./notification.js";
+import { progressBarTemplate } from "./progressBar.js";
+import { rippleTemplate } from "./ripple.js";
+import { marqueeTemplate } from "./marquee.js";
+import { orbitTemplate } from "./orbit.js";
+import { waveTemplate } from "./wave.js";
+import { confettiTemplate } from "./confetti.js";
+import { parallaxTemplate } from "./parallax.js";
+import { kineticTextTemplate } from "./kineticText.js";
+import { particleBurstTemplate } from "./particleBurst.js";
+import { liquidMorphTemplate } from "./liquidMorph.js";
+import { elasticCollapseTemplate } from "./elasticCollapse.js";
+import { glitchTemplate } from "./glitch.js";
+import { reveal3dTemplate } from "./reveal3d.js";
+import { gradientShiftTemplate } from "./gradientShift.js";
+import { elasticScaleTemplate } from "./elasticScale.js";
+import { textScrambleTemplate } from "./textScramble.js";
+import { auroraTemplate } from "./aurora.js";
+import { hologramTemplate } from "./hologram.js";
+import { prismaticTemplate } from "./prismatic.js";
+import { liquidMetalTemplate } from "./liquidMetal.js";
+import { neonFlickerTemplate } from "./neonFlicker.js";
+import { depthCardTemplate } from "./depthCard.js";
+import { glassmorphismTemplate } from "./glassmorphism.js";
+import { kineticRibbonTemplate } from "./kineticRibbon.js";
+import { magneticPullTemplate } from "./magneticPull.js";
+import { scrollRevealTemplate } from "./scrollReveal.js";
+import { gestureTapTemplate } from "./gestureTap.js";
+import { gestureSwipeTemplate } from "./gestureSwipe.js";
+import { skeletonLoaderTemplate } from "./skeletonLoader.js";
+import { pageTransitionTemplate } from "./pageTransition.js";
+import { microInteractionTemplate } from "./microInteraction.js";
+import { hoverLiftTemplate } from "./hoverLift.js";
+import { stateTransitionTemplate } from "./stateTransition.js";
+import { dataStreamTemplate } from "./dataStream.js";
+import { gravityDropTemplate } from "./gravityDrop.js";
+import { chromaticPulseTemplate } from "./chromaticPulse.js";
+import { breathingLightTemplate } from "./breathingLight.js";
+import { magneticRippleTemplate } from "./magneticRipple.js";
+import { counterTemplate } from "./counter.js";
+import { textRevealTemplate } from "./textReveal.js";
+import { blurRevealTemplate } from "./blurReveal.js";
+import { kineticTypographyTemplate } from "./kineticTypography.js";
+import { splitTextTemplate } from "./splitText.js";
+import { mouseParallaxTemplate } from "./mouseParallax.js";
+import { longPressTemplate } from "./longPress.js";
+import { fadeOutTemplate } from "./fadeOut.js";
+import { slideOutTemplate } from "./slideOut.js";
+import { zoomOutTemplate } from "./zoomOut.js";
+import { collapseDownTemplate } from "./collapseDown.js";
+import { dissolveOutTemplate } from "./dissolveOut.js";
+import { origamiFoldTemplate } from "./origamiFold.js";
+import { liquidWaveTemplate } from "./liquidWave.js";
+import { neonPulseTemplate } from "./neonPulse.js";
+import { quantumFieldTemplate } from "./quantumField.js";
+import { crystalShardTemplate } from "./crystalShard.js";
+import { spectrumWaveTemplate } from "./spectrumWave.js";
+import { magneticFieldTemplate } from "./magneticField.js";
+import { tidalFlowTemplate } from "./tidalFlow.js";
+import { cosmicBirthTemplate } from "./cosmicBirth.js";
+import { photonStreamTemplate } from "./photonStream.js";
+import { magneticInkTemplate } from "./magneticInk.js";
+import { dimensionalFoldTemplate } from "./dimensionalFold.js";
+import { liquidMercuryTemplate } from "./liquidMercury.js";
+import { neuralPulseTemplate } from "./neuralPulse.js";
+import { auroraBorealisTemplate } from "./auroraBorealis.js";
+import { quantumEntanglementTemplate } from "./quantumEntanglement.js";
+import { acousticWaveTemplate } from "./acousticWave.js";
+import { crystallineGrowthTemplate } from "./crystallineGrowth.js";
+import { inkBleedTemplate } from "./inkBleed.js";
+import { shatterRevealTemplate } from "./shatterReveal.js";
+import { neonTraceTemplate } from "./neonTrace.js";
+import { kenBurnsTemplate } from "./kenBurns.js";
+import { anticipationTemplate } from "./anticipation.js";
+import { floatTemplate } from "./float.js";
+import { successCheckmarkTemplate } from "./successCheckmark.js";
+import { errorShakeTemplate } from "./errorShake.js";
+import { barGrowTemplate } from "./barGrow.js";
+import { pieSweepTemplate } from "./pieSweep.js";
+import { lineDrawTemplate } from "./lineDraw.js";
+import { badgeUnlockTemplate } from "./badgeUnlock.js";
+import { slideUpExitTemplate } from "./slideUpExit.js";
+import { sinkExitTemplate } from "./sinkExit.js";
+import { rotateOutExitTemplate } from "./rotateOutExit.js";
+import { foldExitTemplate } from "./foldExit.js";
+import { contentPlaceholderTemplate } from "./contentPlaceholder.js";
+import { dashLoaderTemplate } from "./dashLoader.js";
+import { orbLoaderTemplate } from "./orbLoader.js";
+import { curtainRiseTemplate } from "./curtainRise.js";
+import { pageFoldTemplate } from "./pageFold.js";
+import { heartbeatTemplate } from "./heartbeat.js";
+import { liquidRainbowTemplate } from "./liquidRainbow.js";
+import { bookFlipTemplate } from "./bookFlip.js";
+import { beatSnapTemplate } from "./beatSnap.js";
+import { auroraStrollTemplate } from "./auroraStroll.js";
+import { gravitationalLensTemplate } from "./gravitationalLens.js";
+import { quantumDissolveTemplate } from "./quantumDissolve.js";
+import { synthesisWaveTemplate } from "./synthesisWave.js";
+import { tectonicShiftTemplate } from "./tectonicShift.js";
+import { bioLuminescenceTemplate } from "./bioLuminescence.js";
+import { ferrofluidRevealTemplate } from "./ferrofluidReveal.js";
+import { bentoGridRevealTemplate } from "./bentoGridReveal.js";
+import { chromaticOrbitExitTemplate } from "./chromaticOrbitExit.js";
+import { tesseraTransitionTemplate } from "./tesseraTransition.js";
+import { phoneticEmphasisTemplate } from "./phoneticEmphasis.js";
+import { apertureLoaderTemplate } from "./apertureLoader.js";
+import { neuralSparkTemplate } from "./neuralSpark.js";
+import { inkDiffuseTemplate } from "./inkDiffuse.js";
+import { plasmaStormTemplate } from "./plasmaStorm.js";
+import { holographicPrismTemplate } from "./holographicPrism.js";
+import { sonicBoomTemplate } from "./sonicBoom.js";
+import { quantumFluxTemplate } from "./quantumFlux.js";
+import { crystalCascadeTemplate } from "./crystalCascade.js";
+import { eclipseRevealTemplate } from "./eclipseReveal.js";
+import { auroraDriftTemplate } from "./auroraDrift.js";
+import { morphingBlobTemplate } from "./morphingBlob.js";
+import { neuralBloomTemplate } from "./neuralBloom.js";
+import { liquidChromeTemplate } from "./liquidChrome.js";
+import { quantumWaveTemplate } from "./quantumWave.js";
+import { organicPulseTemplate } from "./organicPulse.js";
+import { silkWeaveTemplate } from "./silkWeave.js";
+import { crystallineShatterTemplate } from "./crystallineShatter.js";
+import { gravitationalPullTemplate } from "./gravitationalPull.js";
+import { echoRippleTemplate } from "./echoRipple.js";
+import { prismRefractTemplate } from "./prismRefract.js";
+import { fractureBloomTemplate } from "./fractureBloom.js";
+import type { ComponentDraft, TemplateDef } from "./helper.js";
+
+export const TEMPLATES: TemplateDef[] = [
+  fadeTemplate,
+  slideTemplate,
+  bounceTemplate,
+  scaleTemplate,
+  rotateTemplate,
+  logoRevealTemplate,
+  pulseTemplate,
+  squashStretchTemplate,
+  spinTemplate,
+  resizeTemplate,
+  springTemplate,
+  flipCardTemplate,
+  typewriterTemplate,
+  shimmerTemplate,
+  morphTemplate,
+  notificationTemplate,
+  progressBarTemplate,
+  rippleTemplate,
+  marqueeTemplate,
+  orbitTemplate,
+  waveTemplate,
+  confettiTemplate,
+  parallaxTemplate,
+  kineticTextTemplate,
+  particleBurstTemplate,
+  liquidMorphTemplate,
+  elasticCollapseTemplate,
+  glitchTemplate,
+  reveal3dTemplate,
+  gradientShiftTemplate,
+  elasticScaleTemplate,
+  textScrambleTemplate,
+  auroraTemplate,
+  hologramTemplate,
+  prismaticTemplate,
+  liquidMetalTemplate,
+  neonFlickerTemplate,
+  depthCardTemplate,
+  glassmorphismTemplate,
+  kineticRibbonTemplate,
+  magneticPullTemplate,
+  scrollRevealTemplate,
+  gestureTapTemplate,
+  gestureSwipeTemplate,
+  skeletonLoaderTemplate,
+  pageTransitionTemplate,
+  microInteractionTemplate,
+  hoverLiftTemplate,
+  stateTransitionTemplate,
+  dataStreamTemplate,
+  gravityDropTemplate,
+  chromaticPulseTemplate,
+  breathingLightTemplate,
+  magneticRippleTemplate,
+  counterTemplate,
+  textRevealTemplate,
+  blurRevealTemplate,
+  kineticTypographyTemplate,
+  splitTextTemplate,
+  mouseParallaxTemplate,
+  longPressTemplate,
+  fadeOutTemplate,
+  slideOutTemplate,
+  zoomOutTemplate,
+  collapseDownTemplate,
+  dissolveOutTemplate,
+  origamiFoldTemplate,
+  liquidWaveTemplate,
+  neonPulseTemplate,
+  quantumFieldTemplate,
+  crystalShardTemplate,
+  spectrumWaveTemplate,
+  magneticFieldTemplate,
+  tidalFlowTemplate,
+  cosmicBirthTemplate,
+  photonStreamTemplate,
+  magneticInkTemplate,
+  dimensionalFoldTemplate,
+  liquidMercuryTemplate,
+  neuralPulseTemplate,
+  auroraBorealisTemplate,
+  quantumEntanglementTemplate,
+  acousticWaveTemplate,
+  crystallineGrowthTemplate,
+  inkBleedTemplate,
+  shatterRevealTemplate,
+  neonTraceTemplate,
+  kenBurnsTemplate,
+  anticipationTemplate,
+  floatTemplate,
+  successCheckmarkTemplate,
+  errorShakeTemplate,
+  barGrowTemplate,
+  pieSweepTemplate,
+  lineDrawTemplate,
+  badgeUnlockTemplate,
+  slideUpExitTemplate,
+  sinkExitTemplate,
+  rotateOutExitTemplate,
+  foldExitTemplate,
+  contentPlaceholderTemplate,
+  dashLoaderTemplate,
+  orbLoaderTemplate,
+  curtainRiseTemplate,
+  pageFoldTemplate,
+  heartbeatTemplate,
+  liquidRainbowTemplate,
+  bookFlipTemplate,
+  beatSnapTemplate,
+  auroraStrollTemplate,
+  gravitationalLensTemplate,
+  quantumDissolveTemplate,
+  synthesisWaveTemplate,
+  tectonicShiftTemplate,
+  bioLuminescenceTemplate,
+  ferrofluidRevealTemplate,
+  bentoGridRevealTemplate,
+  chromaticOrbitExitTemplate,
+  tesseraTransitionTemplate,
+  phoneticEmphasisTemplate,
+  apertureLoaderTemplate,
+  neuralSparkTemplate,
+  inkDiffuseTemplate,
+  plasmaStormTemplate,
+  holographicPrismTemplate,
+  sonicBoomTemplate,
+  quantumFluxTemplate,
+  crystalCascadeTemplate,
+  eclipseRevealTemplate,
+  auroraDriftTemplate,
+  morphingBlobTemplate,
+  neuralBloomTemplate,
+  liquidChromeTemplate,
+  quantumWaveTemplate,
+  organicPulseTemplate,
+  silkWeaveTemplate,
+  crystallineShatterTemplate,
+  gravitationalPullTemplate,
+  echoRippleTemplate,
+  prismRefractTemplate,
+  fractureBloomTemplate,
+];
+
+export function getTemplate(id: string): TemplateDef | undefined {
+  return TEMPLATES.find((t) => t.id === id);
+}
+
+/** Materialize a template's drafts into full components bound to a project. */
+export function instantiateTemplate(
+  templateId: string,
+  projectId: string,
+): MotionComponent[] {
+  const tpl = getTemplate(templateId);
+  if (!tpl) return [];
+  const drafts = tpl.build();
+  const ts = now();
+  return drafts.map((d) => ({
+    ...d,
+    id: createId("c_"),
+    projectId,
+    templateId,
+    createdAt: ts,
+    updatedAt: ts,
+  }));
+}
+
+export type { ComponentDraft, TemplateDef };
+
+export interface CategorySummary {
+  category: string;
+  count: number;
+  templates: Array<{ id: string; name: string; description: string }>;
+}
+
+/** Return all templates grouped by category with counts. */
+export function getCategories(): CategorySummary[] {
+  const map = new Map<string, CategorySummary>();
+  for (const tpl of TEMPLATES) {
+    let entry = map.get(tpl.category);
+    if (!entry) {
+      entry = { category: tpl.category, count: 0, templates: [] };
+      map.set(tpl.category, entry);
+    }
+    entry.count++;
+    entry.templates.push({ id: tpl.id, name: tpl.name, description: tpl.description });
+  }
+  return Array.from(map.values()).sort((a, b) => a.category.localeCompare(b.category));
+}
+
+/** Return templates filtered by category. */
+export function listTemplatesByCategory(category: string): TemplateDef[] {
+  return TEMPLATES.filter((t) => t.category === category);
+}
